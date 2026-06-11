@@ -95,7 +95,8 @@ app.post("/tasks", (req, res) => {
     tasks.push({
 
     id: crypto.randomUUID(),
-    task: req.body.task
+    task: req.body.task,
+    date: req.body.dueDate
 
 });
     console.log(tasks);

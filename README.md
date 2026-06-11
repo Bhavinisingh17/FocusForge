@@ -8,6 +8,8 @@ A simple study planner built with JavaScript, Express.js, and Tailwind CSS.
 - Edit tasks
 - Delete tasks
 - Dark mode
+- Add due date for tasks
+- Improved UI design
 - Unique task IDs
 
 ## Tech Stack
@@ -18,3 +20,6 @@ A simple study planner built with JavaScript, Express.js, and Tailwind CSS.
 - Node.js
 - Express.js
 
+
+## Project Status
+ Kanban board feature is currently in development.

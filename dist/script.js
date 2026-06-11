@@ -1,6 +1,15 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     loadTask();
 });
+
+
+          const tasklist = document.getElementById("tasklist");
+          tasklist.className = "flex flex-wrap gap-4 mt-2";
+
+
+            //container for task's div
+        
 
 async function loadTask() {
 
@@ -11,19 +20,34 @@ async function loadTask() {
         const tasks = await response.json();
 
 
-        const tasklist = document.getElementById("tasklist");
         tasklist.innerHTML = "";
 
         tasks.forEach(task => {
-           const div = document.createElement("div");
-           div.className = "bg-blue-500 text-white p-2 rounded-md mb-2 shadow flex justify-between";
 
+ const formattedDate = new Date(task.date).toLocaleDateString(
+        "en-US",
+        {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        }
+    );
+          ///card
+           const div = document.createElement("div");
+           div.className = "bg-white border border-gray-100 text-black font-medium p-6 h-32 w-64 rounded-xl mb-2 shadow flex justify-between items-start flex-col hover:shadow-md transition-shadow duration-200";
+
+
+           //task text
            const span = document.createElement("span");
-           span.innerText = task.task;
+           span.innerText = `📚 ${task.task}`;
 
            // Container for icons
            const iconGroup = document.createElement("div");
            iconGroup.className = "flex gap-2";
+
+           //container for date
+           const dateContainer = document.createElement("div");
+            dateContainer.innerText = `📅 Finish By:  ${formattedDate}`;
 
              //DELETE
         const deleteIcon = document.createElement("div");
@@ -61,11 +85,12 @@ editIcon.addEventListener("click", () =>{
 
         iconGroup.appendChild(editIcon);
         iconGroup.appendChild(deleteIcon);
-        div.appendChild(span);
+      
+         div.appendChild(span);
+        div.appendChild(dateContainer);
         div.appendChild(iconGroup);
 
-
-         tasklist.appendChild(div);
+        tasklist.appendChild(div);
         });
 }
 
