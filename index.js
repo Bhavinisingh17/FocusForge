@@ -96,8 +96,8 @@ app.post("/tasks", (req, res) => {
 
     id: crypto.randomUUID(),
     task: req.body.task,
-    date: req.body.dueDate
-
+    date: req.body.dueDate,
+    status: req.body.status
 });
     console.log(tasks);
     res.redirect("/index.html");

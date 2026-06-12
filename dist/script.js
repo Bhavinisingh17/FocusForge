@@ -6,7 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const tasklist = document.getElementById("tasklist");
           tasklist.className = "flex flex-wrap gap-4 mt-2";
-
+           
+         const todo = document.getElementById("todo");
+         const progress = document.getElementById("progress");
+         const completed = document.getElementById("completed");
 
             //container for task's div
         
@@ -34,7 +37,7 @@ async function loadTask() {
     );
           ///card
            const div = document.createElement("div");
-           div.className = "bg-white border border-gray-100 text-black font-medium p-6 h-32 w-64 rounded-xl mb-2 shadow flex justify-between items-start flex-col hover:shadow-md transition-shadow duration-200";
+           div.className = "bg-white border border-gray-100 text-black font-medium p-6 h-32 w-64 rounded-xl mb-2 shadow flex justify-between items-start flex-col hover:shadow-md transition-shadow duration-300";
 
 
            //task text
@@ -45,9 +48,16 @@ async function loadTask() {
            const iconGroup = document.createElement("div");
            iconGroup.className = "flex gap-2";
 
+          
+          
            //container for date
-           const dateContainer = document.createElement("div");
+            const dateContainer = document.createElement("div");
             dateContainer.innerText = `📅 Finish By:  ${formattedDate}`;
+
+///taskStatus 
+const status = document.createElement("div");
+status.innerText = task.status;
+
 
              //DELETE
         const deleteIcon = document.createElement("div");
@@ -83,14 +93,17 @@ editIcon.addEventListener("click", () =>{
 })
 
 
+
         iconGroup.appendChild(editIcon);
         iconGroup.appendChild(deleteIcon);
       
-         div.appendChild(span);
+        div.appendChild(span);
         div.appendChild(dateContainer);
         div.appendChild(iconGroup);
-
-        tasklist.appendChild(div);
+        div.appendChild(status);
+        // tasklist.appendChild(div);
+        
+          statusId(task.status, div);
         });
 }
 
@@ -123,4 +136,17 @@ async function editTask(id, currentTask){
 }
 
 
-//addiding dark mode
+
+// / ?\Status
+
+function statusId(status, div){
+    if(status === "todo"){
+        todo.appendChild(div);
+    }
+    else if(status === "progress"){
+        progress.appendChild(div);
+    }
+    else if(status === "completed"){
+        completed.appendChild(div);
+    }
+}

@@ -9,6 +9,7 @@ A simple study planner built with JavaScript, Express.js, and Tailwind CSS.
 - Delete tasks
 - Dark mode
 - Add due date for tasks
+- Kanban board for task management (To Do, In Progress, Done) 
 - Improved UI design
 - Unique task IDs
 
@@ -22,4 +23,4 @@ A simple study planner built with JavaScript, Express.js, and Tailwind CSS.
 
 
 ## Project Status
- Kanban board feature is currently in development.
+ - Advanced features planned (drag & drop, database integration)
