@@ -1,6 +1,6 @@
 # FocusForge
 
-A simple study planner built with JavaScript, Express.js, and Tailwind CSS.
+A simple study planner built with JavaScript, Express.js, MongoDB and Tailwind CSS.
 
 ## Features
 
@@ -12,15 +12,26 @@ A simple study planner built with JavaScript, Express.js, and Tailwind CSS.
 - Kanban board for task management (To Do, In Progress, Done) 
 - Improved UI design
 - Unique task IDs
+- MongoDB database integration
+
 
 ## Tech Stack
 
+
+## Frontend 
 - HTML
 - Tailwind CSS
 - JavaScript
+
+
+## Backend
 - Node.js
 - Express.js
 
 
+## Database
+- MongoDB
+- Mongoose
+
 ## Project Status
- - Advanced features planned (drag & drop, database integration)
+ - Currently under development with core task management features completed and new improvements planned.

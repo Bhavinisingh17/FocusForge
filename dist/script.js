@@ -1,31 +1,36 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM Loaded");
+
     loadTask();
 });
 
+  
 
-          const tasklist = document.getElementById("tasklist");
-          tasklist.className = "flex flex-wrap gap-4 mt-2";
            
          const todo = document.getElementById("todo");
          const progress = document.getElementById("progress");
          const completed = document.getElementById("completed");
 
             //container for task's div
-        
+       
 
-async function loadTask() {
+     async function loadTask() {
+
 
     // fetch("/tasks")
 // Express receives a GET request at /tasks.
    
         const response = await fetch("/tasks");
-        const tasks = await response.json();
+        const newTask = await response.json();
 
+        todo.innerHTML = "";
+       progress.innerHTML = "";
+       completed.innerHTML = "";
 
-        tasklist.innerHTML = "";
+    
 
-        tasks.forEach(task => {
+        newTask.forEach(task => {
 
  const formattedDate = new Date(task.date).toLocaleDateString(
         "en-US",
@@ -36,30 +41,36 @@ async function loadTask() {
         }
     );
           ///card
-           const div = document.createElement("div");
-           div.className = "bg-white border border-gray-100 text-black font-medium p-6 h-32 w-64 rounded-xl mb-2 shadow flex justify-between items-start flex-col hover:shadow-md transition-shadow duration-300";
+
+           const card = document.createElement("div");    
+          card.className =  "bg-gray-100 dark:bg-white/10 dark:shadow-small dark:shadow-white/5 text-black dark:text-white font-medium p-6 h-32  rounded-lg mb-2 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 flex justify-between items-start flex-col dark: border border-white/10 ";
 
 
            //task text
+
            const span = document.createElement("span");
            span.innerText = `📚 ${task.task}`;
 
            // Container for icons
+
            const iconGroup = document.createElement("div");
            iconGroup.className = "flex gap-2";
 
           
           
            //container for date
+
             const dateContainer = document.createElement("div");
             dateContainer.innerText = `📅 Finish By:  ${formattedDate}`;
+             dateContainer.className = "text-white/35 text-xs"
+          //taskStatus 
 
-///taskStatus 
-const status = document.createElement("div");
-status.innerText = task.status;
+          const status = document.createElement("div");
+          status.innerText = task.status;
 
 
              //DELETE
+
         const deleteIcon = document.createElement("div");
          deleteIcon.innerHTML = `
         <lord-icon
@@ -72,11 +83,12 @@ status.innerText = task.status;
          let icon = deleteIcon.querySelector("lord-icon");
 
         icon.addEventListener("click", () => {
-            console.log("clicked", task.id);
-            deleteTask(task.id);
+            console.log("clicked", task._id);
+            deleteTask(task._id);
+
         })
 
-/// EDIT
+       // EDIT
 
           const editIcon = document.createElement("div");
           editIcon.innerHTML = 
@@ -89,7 +101,7 @@ status.innerText = task.status;
         </lord-icon>`;
           
 editIcon.addEventListener("click", () =>{
-          editTask(task.id, task.task);
+          editTask(task._id, task.task);
 })
 
 
@@ -97,13 +109,12 @@ editIcon.addEventListener("click", () =>{
         iconGroup.appendChild(editIcon);
         iconGroup.appendChild(deleteIcon);
       
-        div.appendChild(span);
-        div.appendChild(dateContainer);
-        div.appendChild(iconGroup);
-        div.appendChild(status);
-        // tasklist.appendChild(div);
+        card.appendChild(span);
+        card.appendChild(dateContainer);
+        card.appendChild(iconGroup);
+        card.appendChild(status);
         
-          statusId(task.status, div);
+          statusId(task.status, card);
         });
 }
 
@@ -131,6 +142,7 @@ async function editTask(id, currentTask){
             task: update
         })
  })
+
     loadTask();
 
 }
@@ -139,14 +151,14 @@ async function editTask(id, currentTask){
 
 // / ?\Status
 
-function statusId(status, div){
+function statusId(status, card){
     if(status === "todo"){
-        todo.appendChild(div);
+        todo.appendChild(card);
     }
     else if(status === "progress"){
-        progress.appendChild(div);
+        progress.appendChild(card);
     }
     else if(status === "completed"){
-        completed.appendChild(div);
+        completed.appendChild(card);
     }
 }
