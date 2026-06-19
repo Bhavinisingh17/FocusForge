@@ -127,6 +127,7 @@ async function deleteTask(id){
    }
    );
       loadTask();
+      loadCounts();
 }
 
 //edit 
@@ -144,6 +145,7 @@ async function editTask(id, currentTask){
  })
 
     loadTask();
+    loadCounts();
 
 }
 
@@ -162,3 +164,17 @@ function statusId(status, card){
         completed.appendChild(card);
     }
 }
+
+
+///count
+
+async function loadCounts(){
+    const response = await fetch("/tasks/count");
+    const data = await response.json();
+    document.querySelector("#totalTask h1").innerHTML = data.total;
+    document.querySelector("#todoCount h1").innerHTML = data.todo;
+    document.querySelector("#inprogCount h1").innerHTML = data.inprogress;
+    document.querySelector("#completeCount h1").innerHTML = data.completed;
+}
+
+loadCounts();

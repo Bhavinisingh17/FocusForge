@@ -55,11 +55,35 @@ const deleteTask = async(req, res) => {
 
 }
 
+
+const getTaskCount = async(req, res) => {
+
+    try {
+     let total = await Task.countDocuments();
+     let todo = await Task.countDocuments({status: "todo"});
+     let inprogress = await Task.countDocuments({status: "progress"});
+     let completed = await Task.countDocuments({status: "completed"});
+
+       res.json({
+            total,
+            todo,
+            inprogress,
+            completed
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+
+       res.redirect("/index.html");
+
+}
+
 module.exports = {
     getTask,
     createTask,
     deleteTask,
-    updateTask
+    updateTask,
+    getTaskCount
 }
 
 
