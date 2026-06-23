@@ -27,7 +27,12 @@ app.use(
     )
 );
 
+app.get("/", (req, res) => {
+    res.send("HOME WORKS");
+});
+
 app.use("/tasks", taskRoutes);
+
 
 
 app.listen(port,()=>{

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>focusForge</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 <script>
@@ -16,125 +17,132 @@ tailwind.config = {
 }
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
-</head>
 
 <body class="
 min-h-screen
 bg-gray-100
 dark:bg-black
 font-[Poppins]
-"> 
+">     
+    <!-- Navbar -->
+<nav class="bg-white sticky top-0 shadow flex flex-wrap items-center justify-between gap-4  dark:bg-[#18181B] dark:text-[#ECECEC] dark:backdrop:blur-lg">
+      <h1 class="font-bold mt-4 ml-2 mb-6 font-mono text-2xl dark:text-[#ECECEC]">focus<span class="italic text-[#7e5e88]">Forge</span></h1>
+      <div class="dark:opacity-70 hover:opacity-100">
+        <i class="mr-1 fa-solid fa-house"></i>
+        <a href="/index.html" >Dashboard</a>
+      </div>
 
-<!-- ///navbar---- -->
-  <nav class="bg-white sticky top-0 shadow flex flex-wrap items-center justify-between gap-4 dark:bg-[#20201e] dark:text-[#ECECEC] dark:backdrop:blur-lg">
-      <h1 class="font-bold mt-3 mb-6 font-mono text-2xl dark:text-[#ECECEC]">focus<span class="italic text-[#7e5e88]">Forge</span></h1>
-      <a href="#" class="dark:opacity-70 hover:opacity-100">Dashboard</a>
-      <a href="#" class="dark:opacity-70 hover:opacity-100">My Task</a>
-      <a href="#" class="dark:opacity-70 hover:opacity-100">Kanban</a>
-      <a href="#" class="dark:opacity-70 hover:opacity-100">Calendar</a>
+       <div class="dark:opacity-70 hover:opacity-100">
+         <i class="mr-1 fa-solid fa-list-check"></i>
+         <a href="/pages/dashboard.html" >My Task</a>
+      </div>
+
+       <div class="dark:opacity-70 hover:opacity-100">
+         <i class="mr-1 fa-brands fa-trello"></i>
+         <a href="/pages/kanban.html" >Kanban</a>
+      </div>
+
+      
+     <div class="dark:opacity-70 hover:opacity-100">
+         <i class="mr-1 fa-solid fa-calendar"></i>
+         <a href="/pages/dashboard.html" >Calendar</a>
+      </div>
+
       <i class="fa-regular fa-moon text-black text-2xl opacity-70 hover:opacity-100 cursor-pointer transition dark:text-[#ECECEC]" id="dark"></i>  
   </nav>
 
-<!-- Main body -->
+  <h2 class="dark:text-[#ECECEC] text-2xl mt-3 ml-2">Welcome back, Bhavini👋</h2>
+   <p1 class="dark:text-[#ECECEC] text-[12px] dark:opacity-70 ml-2">Stay focused, and keep learning!</p1>
 
- <main>
+    <!-- Taskcount -->
 
 
-  <!-- count of all task -->
 
-  <div class="flex justify-center w-[98%] gap-6">
+ <div class="flex max-w-[1600px] mx-auto  gap-6 ml-2 mt-0 mr-2">
 
-<div id="totalTask" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] dark:text-[#7e5e88] mt-3 p-4 w-64 rounded-xl">    
-    <p class="text-sm opacity-70 dark:text-[#ECECEC]">Total Tasks</p>
-      <h1 class="text-4xl font-bold mt-2"></h1>
+       <div id="totalTask" class="dark:bg-[#18181B] md:w-3 dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex items-center gap-4 rounded-xl flex-1">
+        
+        <div class="w-16 h-16 rounded-2xl bg-violet-950/40 flex items-center justify-center">
+           <i class="fa-solid fa-list-check text-violet-500 text-2xl"></i>
+        </div>
+
+      <div>
+        <h3 class="text-white">Total Tasks</h3>
+        <h1 class="text-violet-500 text-3xl font-bold"></h1>
+        <p class="text-gray-400 text-sm">Tasks created</p>
+      </div>
+
     </div>
 
 
-    <div id="todoCount" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] dark:text-[#7e5e88] mt-3 p-4 w-64 rounded-xl">
-       <p class="text-sm opacity-70 dark:text-[#ECECEC]">To Do</p>
-      <h1 class="text-4xl font-bold mt-2"></h1>
-    </div>
-    
+    <div id="completeCount" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex items-center gap-4 rounded-xl flex-1">
+      
+      <div class="w-16 h-16 rounded-2xl bg-green-950/40 flex items-center justify-center">
+       <i class="fa-solid fa-circle-check text-green-500 text-2xl"></i>
+      </div>
 
-
- <div id="inprogCount" class="dark:bg-[#18181B]   dark:border dark:border-[#27272A] dark:text-[#7e5e88] mt-3 p-4 w-64 rounded-xl">
-      <p class="text-sm opacity-70 dark:text-[#ECECEC]">In progress</p>
-      <h1 class=" dark:text-[#c68a23] text-4xl font-bold mt-2">12</h1>
-    </div>
-    
-
-
- <div id="completeCount" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] dark:text-[#7e5e88] mt-3 p-4 w-64 rounded-xl">
-      <p class="text-sm opacity-70 dark:text-[#ECECEC]">Done</p>
-      <h1 class="dark: text-[#22C55E] text-4xl font-bold mt-2">12</h1>
-    </div>
-    
-
+  <div>
+    <h3 class="text-white">Completed</h3>
+    <h1 class="text-green-500 text-3xl font-bold">8</h1>
+    <p class="text-gray-400 text-sm">Tasks finished</p>
   </div>
 
+ </div>
+    
+<div id="inprogCount"
+class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex items-center gap-4 rounded-xl flex-1">
+
+  <div class="w-16 h-16 rounded-2xl bg-yellow-950/40 flex items-center justify-center">
+    <i class="fa-solid fa-clock text-yellow-500 text-2xl"></i>
+  </div>
+
+  <div>
+    <h3 class="text-white">Pending</h3>
+    <h1 class="text-yellow-500 text-3xl font-bold">8</h1>
+    <p class="text-gray-400 text-sm">Tasks remaining</p>
+  </div>
+
+</div>
+
+ <div id="streak" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] dark:text-[#7e5e88] mt-3 p-4 w-64 flex items-center gap-4 rounded-xl flex-1">
+    
+   <div class="w-16 h-16 rounded-2xl bg-pink-950/40 flex items-center justify-center">
+    <i class="fa-solid fa-fire text-[#E84D9B] text-2xl"></i>
+  </div>
+
+<div>
+    <h3 class="text-white">Study Streak</h3>
+    <h1 class="text-[#E84D9B] text-3xl font-bold">12</h1>
+    <p class="text-gray-400 text-sm">Days in a row 🔥</p>
+  </div>
+
+   </div>
+
+</div>
+    <!-- Task progress -->
+<div class="flex ml-2 mr-2 gap-6">
+
+   <div id="today-task" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 rounded-xl flex-1 h-64">
+      <h1 class="dark:text-white text-xl">Today's Tasks</h1>
+   </div>
 
 
-  <!-- Task Container -->
-   <div class="flex flex-col p-9 w-full max-w-7xl pt-2 rounded-xl items-center mx-auto">
-      <form action="/tasks" method="POST" class="flex flex-col md:flex-row gap-4 w-[98%]">
-        
-       <div class="w-full bg-purple-200 p-6 flex rounded-xl border border-purple-100 shadow-sm gap-4 dark:border-0 dark:bg-white/10 dark">
-             
-          <input type="text" 
-          placeholder="Enter subject"
-          name="task"
-          class=" flex-1 text-[#7972729d] p-2 rounded-md h-10 min-w-0 dark:bg-[#212121] dark:border dark:border-[#3F3F46] dark:text-[#ececec9d]"
-          >
-
-           <input type="date" 
-          name="dueDate"
-          class="text-[#7972729d] flex-1 border p-2 rounded-md h-10 min-w-0 dark:bg-[#212121] dark:border dark:border-[#3F3F46] dark:text-[#ececec9d]  dark:[&::-webkit-calendar-picker-indicator]:opacity-60
-    dark:[&::-webkit-calendar-picker-indicator]:invert"
-          >
-          
-         <select name="status" class="text-[#7972729d] flex-1 px-2 rounded-md h-10  dark:bg-[#212121] dark:border dark:border-[#3F3F46]  dark:text-[#ececec9d]" >
-            <option value="" selected disabled class="bg-[#7e5e88]">Select Status</option>
-            <option value="todo" class="bg-[#7e5e88]">To Do</option>
-            <option value="progress">In Progress</option>
-            <option value="completed">Completed</option>
-         </select>
-
-       <button class="bg-[#7e5e88] px-8  rounded h-10 md:w-auto">       
-            Add
-       </button>
-
-       </div>
-      </form>
+     <div id="upcoming-task" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64  rounded-xl flex-1">
+            <h1 class="dark:text-white text-xl">Upcoming Deadlines</h1>
+     </div>
 
 
-      <!-- ///kanban -->
+     <div id="recent-task" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 rounded-xl flex-1">
+          <h1 class="dark:text-white text-xl">Recent Completed</h1>
+     </div>
 
-     <div id="kanban" class=" flex w-[98%] overflow-x-auto gap-4">
-          <div  class="flex-1  min-w-[280px]  min-h-fit bg-white rounded-xl shadow p-4 ml-3 mt-2 mb-2 dark:bg-[#212121] dark:shadow">
-              <h1 class="font-semibold text-lg border-l-4 border-purple-500  mb-4 bg-purple-200 pt-3 pb-3">
-              📝 To Do
-             </h1>
-             <div id = "todo"></div>
-        </div>
+</div>
 
-        <div  class="flex-1  min-w-[280px] min-h-[500px] bg-white rounded-xl shadow p-4 ml-3 mt-2 mb-2 dark: dark:bg-[#212121] dark:shadow">
-            <h1 class="font-semibold text-lg border-l-4 border-yellow-500 pl-3 mb-4 bg-yellow-200 pt-3 pb-3">
-              In progress
-            </h1>
-           <div id = "progress"></div>
-        </div>
 
-        <div  class="flex-1 min-w-[280px]  min-h-[500px] bg-white rounded-xl shadow p-4 ml-3 mt-2 mb-2 dark: dark:bg-[#212121] dark:shadow">
-            <h1 class="font-semibold text-lg border-l-4 border-green-500 pl-3 mb-4 bg-green-200 pt-3 pb-3">
-              Done
-            </h1>
-            <div id="completed"></div>
-        </div>
-      </div>
- </main>
-   
+     <!-- Charts -->
 
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-     <script src="script.js"></script>
+
 </body>
+<script src="dash.js"></script>
+<script src="script.js"></script>
 </html>

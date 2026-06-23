@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ///card
 
            const card = document.createElement("div");    
-          card.className =  "bg-gray-100 dark:bg-white/10 dark:shadow-small dark:shadow-white/5 text-black dark:text-white font-medium p-6 h-32  rounded-lg mb-2 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 flex justify-between items-start flex-col dark: border border-white/10 ";
+          card.className =  "bg-gray-100 dark:bg-[#18181B] dark:shadow-small dark:shadow-white/5 text-black dark:text-white font-medium p-6 pt-2 pb-2 rounded-lg mb-2 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 flex justify-between items-start flex-col dark: border border-white/10 ";
+// < id="totalTask" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] dark:text-[#7e5e88] mt-3 p-4 w-64 rounded-xl">    
 
 
            //task text
@@ -172,9 +173,10 @@ async function loadCounts(){
     const response = await fetch("/tasks/count");
     const data = await response.json();
     document.querySelector("#totalTask h1").innerHTML = data.total;
-    document.querySelector("#todoCount h1").innerHTML = data.todo;
     document.querySelector("#inprogCount h1").innerHTML = data.inprogress;
     document.querySelector("#completeCount h1").innerHTML = data.completed;
+    document.querySelector("#todoCount h1").innerHTML = data.todo;
+
 }
 
 loadCounts();

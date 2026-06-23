@@ -1,4 +1,3 @@
-const crypto = require("crypto");
 const Task = require("../models/task");
 
 
@@ -13,7 +12,7 @@ const createTask = async (req, res) => {
    });
    await newTask.save();
     console.log(newTask);
-    res.redirect("/index.html");
+    res.redirect("/pages/index.html");
 };
 
 ///getTask---for seeing the task
@@ -74,7 +73,6 @@ const getTaskCount = async(req, res) => {
         res.status(500).json({ message: err.message });
     }
 
-       res.redirect("/index.html");
 
 }
 
