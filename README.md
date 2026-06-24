@@ -1,57 +1,78 @@
 # FocusForge
 
-A simple study planner built with JavaScript, Express.js, MongoDB and Tailwind CSS.
+A productivity-focused study planner built with JavaScript, Express.js, MongoDB, and Tailwind CSS to help students organize tasks, track progress, and maintain study consistency.
 
 ## Features
 
+### Task Management
+
 * Create, edit, and delete tasks
 * Assign due dates to tasks
-* Dark mode support
+* Mark tasks as completed
 * Unique task IDs
 * MongoDB database integration
 
-### Task Tracking
+### Dashboard
 
-* Today's Tasks count
-* Upcoming Tasks count
-* Completed Tasks count
-* Real-time task statistics
+* Today's Tasks
+* Upcoming Tasks
+* Recently Completed Tasks
+* Real-time task statistics:
 
   * Total Tasks
-  * To Do Tasks
-  * In Progress Tasks
   * Completed Tasks
+  * Pending Tasks
+  * Study Streak Counter
+
+### Study Streak System
+
+* Tracks consecutive study days
+* Automatically resets streak when a study gap is detected
+* Displays current streak on the dashboard
+
+### Weekly Progress Analytics
+
+* Visual weekly progress chart
+* Displays completed tasks by day of the week
+* Helps monitor study consistency
 
 ### Kanban Board
 
-* Drag and organize tasks through different stages:
+Organize tasks using drag-and-drop workflow:
 
-  * To Do
-  * In Progress
-  * Done
+* To Do
+* In Progress
+* Done
 
 ### User Experience
 
-* Responsive and modern UI
-* Clean dashboard for tracking study progress
+* Dark mode support
+* Responsive design
+* Clean and modern UI
+* Real-time updates
 
 ## Tech Stack
 
+### Frontend
 
-## Frontend 
-- HTML
-- Tailwind CSS
-- JavaScript
+* HTML
+* Tailwind CSS
+* JavaScript
+* Chart.js
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+* Mongoose
 
 
-## Backend
-- Node.js
-- Express.js
-
-
-## Database
-- MongoDB
-- Mongoose
 
 ## Project Status
- - Core task management functionality is complete, including CRUD operations, MongoDB integration, dark mode, and Kanban workflow. New features and UI enhancements are being added regularly.
+
+Core functionality is complete, including task management, dashboard analytics, Kanban workflow, MongoDB integration, study streak tracking, and weekly progress visualization. New features and UI improvements are actively being developed.
+

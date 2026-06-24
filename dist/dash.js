@@ -5,7 +5,6 @@ const todayTask = document.querySelector("#today-task");
 const upcomingTask = document.querySelector("#upcoming-task");
 const recentTask = document.querySelector("#recent-task");
 
-
 async function loadTodayTasks() {
 
 
@@ -66,18 +65,45 @@ dateDiv.innerHTML = `
     <span>${taskDate === today ? "Today" : taskDate}</span>
 `;
 
-if (element.status === "completed") {
-    completedTask.appendChild(createTask(element));
-}
-else if (taskDate === today) {
-    todayTask.appendChild(createTask(element));
-}
-else if (taskDate > today) {
-    upcomingTask.appendChild(createTask(element));
-}
-else {
-    recentTask.appendChild(createTask(element));
-}
+ if (element.status === "completed") {
+        const icon = document.createElement("i");
+        icon.className = "fa-solid fa-circle-check text-green-500";
+        li.appendChild(icon);
+    }
+    else if (taskDate === today) {
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        li.appendChild(checkbox);
+
+
+////add event listener at the check box
+
+checkbox.addEventListener("change", async () => {
+
+    if (checkbox.checked) {
+
+        await fetch(`/tasks/${element._id}/complete`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                status: "completed",
+                completedAt: new Date()
+            })
+        });
+
+        location.reload();
+    }
+});
+
+
+    }
+    else if (taskDate > today) {
+        const icon = document.createElement("i");
+        icon.className = "fa-solid fa-hourglass-half text-orange-500";
+        li.appendChild(icon);
+    }
 
 
 
@@ -90,9 +116,77 @@ else {
 }
 
 
+///countStreak
+
+ async function countStreak(){
+    const response = await fetch("/tasks/streak");
+    const streak = await response.json();
+    document.querySelector("#streak h1").innerHTML = streak.currentStreak;
+
+}
+
+const ctx = document.getElementById("weeklyChart");
+
+
+async function loadWeeklyTask(){
+    const response = await fetch("/tasks/weekly-progress");
+    const data = await response.json();
+
+    console.log("Chart created");
+    new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [{
+            label: "Tasks Completed",
+            data: [
+                data.Mon,
+                data.Tue,
+                data.Wed,
+                data.Thu,
+                data.Fri,
+                data.Sat,
+                data.Sun
+            ],
+            backgroundColor: "#6D28D9",
+            borderColor: "#6D28D9",
+            borderWidth: 2,
+            barThickness: 45,
+            borderRadius: 8
+        }]
+    },
+
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+
+        scales: {
+            y: {
+                grid: {
+                    color: "#27272A"
+                },
+                ticks: {
+                    color: "#ffffff"
+                }
+            },
+            x: {
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    color: "#ffffff"
+                }
+            }
+        }
+    }
+});
+
+    console.log(data);
+}
 
 
 
 
-
+countStreak();
 loadTodayTasks();
+loadWeeklyTask();

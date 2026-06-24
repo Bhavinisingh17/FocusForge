@@ -122,7 +122,7 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
     <!-- Task progress -->
 <div class="flex ml-2 mr-2 gap-6">
 
-   <div id="today-task" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 rounded-xl flex-1 h-64">
+   <div id="today-task" class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 rounded-xl flex-1">
       <h1 class="dark:text-white text-xl">Today's Tasks</h1>
    </div>
 
@@ -140,9 +140,21 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
 
 
      <!-- Charts -->
+<div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 w-[65%] rounded-xl ml-3">
 
+    <div class="flex items-center gap-2 mb-4">
+        <i class="fa-solid fa-chart-column text-[#7e5e88]"></i>
+        <h2 class="font-semibold dark:text-white">
+            Weekly Study Progress
+        </h2>
+    </div>
+
+    <canvas id="weeklyChart"></canvas>
+
+</div>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="dash.js"></script>
 <script src="script.js"></script>
 </html>

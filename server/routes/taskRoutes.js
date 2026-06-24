@@ -1,7 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const { checkTask } = require("../controller/dashController");
+const { checkTask,
+       streakCount,
+        weeklyProgress
+ } = require("../controller/dashController");
+
+
+router.patch("/:id/complete", checkTask);
+router.get("/streak", streakCount);
+router.get("/weekly-progress", weeklyProgress);
 
 
 const {
@@ -18,10 +26,8 @@ router.get("/count", getTaskCount);
 router.get("/", getTask );
 router.post("/", createTask );
 router.patch("/:id", updateTask);
-router.delete("/:id", deleteTask);
+router.delete("/:id", deleteTask)
 
 
-// Dashboard checkbox complete task
-router.patch("/:id/complete", checkTask);
 
 module.exports = router;
