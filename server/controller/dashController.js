@@ -1,5 +1,7 @@
 const Task = require("../models/task");
 const Streak = require("../models/streak");
+const Focus = require("../models/focus");
+const today = new Date().toISOString().split("T")[0];
 
 
 
@@ -46,8 +48,14 @@ const checkTask = async (req, res) => {
 
         } else {
 
-            const lastDate = new Date(streak.lastCompletedDate);
-            const currentDate = new Date();
+            console.log("today:", today);
+         console.log("lastCompletedDate:", lastCompletedDate);
+
+
+            const lastDate = new Date(lastCompletedDate);
+            const currentDate = new Date(today);
+           console.log("lastDate:", lastDate);
+           console.log("currentDate:", currentDate);
 
             const diff = Math.floor(
                 (currentDate - lastDate) / (1000 * 60 * 60 * 24)
@@ -108,6 +116,7 @@ const streakCount = async (req, res) => {
             / (1000 * 60 * 60 * 24)
         );
 
+
         if (diff > 1) {
             streak.currentStreak = 0;
             await streak.save();
@@ -153,8 +162,34 @@ const weeklyProgress = async(req, res) => {
           res.json(progress);
 }
 
+
+///track time of focus
+
+const trackFocus = async(req, res) => {
+    console.log("trackFocus route hit");
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const focus = await Focus.findOneAndUpdate(
+    {date: today},
+    { $inc: {
+            totalSession: 1,
+            totalFocusTime: 25
+        }
+    },
+     {
+        new: true,
+        upsert: true
+    }
+);
+res.json(focus);
+console.log(focus);
+}
+
 module.exports = {
     checkTask,
     streakCount,
-    weeklyProgress
+    weeklyProgress,
+    trackFocus
 };

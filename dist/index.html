@@ -140,18 +140,117 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
 
 
      <!-- Charts -->
-<div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 w-[65%] rounded-xl ml-3">
+      <div class="flex mr-2">
+
+<div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl w-[55%]">
 
     <div class="flex items-center gap-2 mb-4">
         <i class="fa-solid fa-chart-column text-[#7e5e88]"></i>
-        <h2 class="font-semibold dark:text-white">
+        <h2 class="text-xl dark:text-white">
             Weekly Study Progress
         </h2>
     </div>
-
     <canvas id="weeklyChart"></canvas>
+</div>
+
+<!-- ////focus summary -->
+<div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl w-[25%]">
+
+    <h2 class="text-xl mb-6 text-white">
+        Focus Summary (Today)
+    </h2>
+
+    <div class="grid grid-cols-2">
+
+        <!-- Total Focus Time -->
+        <div class="p-4 border-r border-b border-[#334155]">
+            <p class="text-gray-400 mb-3">
+                Total Focus Time
+            </p>
+
+            <div class="flex items-center gap-3">
+                <i class="fa-regular fa-clock text-xl"></i>
+                <span id="focusTime" class="text-3xl font-bold">
+                    2h 15m
+                </span>
+            </div>
+        </div>
+
+        <!-- Sessions Completed -->
+        <div class="p-4 border-b border-[#334155]">
+            <p class="text-gray-400 mb-3">
+                Sessions Completed
+            </p>
+
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-stopwatch text-xl"></i>
+                <span id="sessionCount" class="text-3xl font-bold">
+                    5
+                </span>
+            </div>
+        </div>
+
+        <!-- Longest Session -->
+        <div class="p-4 border-r border-[#334155]">
+            <p class="text-gray-400 mb-3">
+                Longest Session
+            </p>
+
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-bullseye text-xl text-green-500"></i>
+                <span id="longestSession" class="text-3xl font-bold">
+                    50m
+                </span>
+            </div>
+        </div>
+
+        <!-- Focus Streak -->
+        <div class="p-4">
+            <p class="text-gray-400 mb-3">
+                Focus Streak
+            </p>
+
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-fire text-xl text-pink-500"></i>
+                <span id="streak" class="text-3xl font-bold">
+                    7 days
+                </span>
+            </div>
+        </div>
+
+    </div>
 
 </div>
+
+
+
+
+<!-- ///focus timer -->
+        <div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl  w-[35%]">
+        <h3 class=" dark:text-white text-xl">
+            Focus Timer
+        </h3>
+         
+        <div>
+              <h1 class=" dark:text-white text-2xl" id="timer">
+                 25:00
+              </h1>
+              <button class="bg-[#6D28D9] pl-7 pr-7 pt-2 pb-2 rounded-lg text-white" id="start">
+              <i class="fa-solid fa-play"></i>
+                Start
+              </button>
+              <button class="bg-[#6D28D9] pl-7 pr-7 pt-2 pb-2 rounded-lg text-white" id="pause">
+                <i class="fa-solid fa-circle-pause"></i>
+                Pause
+              </button>
+              <button class="bg-[#6D28D9] pl-7 pr-7 pt-2 pb-2 rounded-lg text-white" id="reset">
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+                Reset
+              </button>
+        </div>
+
+     </div>
+ </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

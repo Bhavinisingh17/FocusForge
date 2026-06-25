@@ -2,14 +2,16 @@ const express = require("express");
 const router = express.Router();
 
 const { checkTask,
-       streakCount,
-        weeklyProgress
+        streakCount,
+        weeklyProgress,
+        trackFocus
  } = require("../controller/dashController");
 
 
 router.patch("/:id/complete", checkTask);
 router.get("/streak", streakCount);
 router.get("/weekly-progress", weeklyProgress);
+router.post("/focus/session", trackFocus);
 
 
 const {

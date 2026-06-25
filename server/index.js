@@ -7,6 +7,8 @@ const path = require("path");
 const mongoose = require("mongoose");
 const connectDb = require("./config/db");
 const Task = require("./models/task.js");
+const Focus = require("./models/focus.js");
+
 
 
 const app = express();

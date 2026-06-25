@@ -127,6 +127,7 @@ checkbox.addEventListener("change", async () => {
 
 const ctx = document.getElementById("weeklyChart");
 
+// LoadWeeklytask
 
 async function loadWeeklyTask(){
     const response = await fetch("/tasks/weekly-progress");
@@ -185,8 +186,84 @@ async function loadWeeklyTask(){
 }
 
 
+//timerCount
+
+function timerCount() {
+    const start = document.querySelector("#start");
+    const h = document.querySelector("#timer");
+    let remainingTime = 1500;
+    let timer;
+    
+
+///for start button
+
+    start.addEventListener("click", ()=> {
+        if (timer) return;
 
 
+    timer = setInterval(async () => {
+    remainingTime--;
+    const minutes = Math.floor(remainingTime/60);
+    const seconds = remainingTime % 60;
+     h.innerHTML =
+        `${minutes}:${seconds.toString().padStart(2, "0")}`;
+
+          if (remainingTime === 0) {
+                clearInterval(timer);
+                timer = null;
+
+             const data = await trackFocus();
+
+              document.querySelector("#sessionCount").innerText =
+              data.totalSession;
+
+            }
+}, 1000);
+    });
+
+
+//for pause button
+const pause = document.querySelector("#pause");
+pause.addEventListener("click", ()=> {
+    clearInterval(timer);
+    timer = null;
+});
+
+
+//for reset
+const reset = document.querySelector("#reset");
+
+  reset.addEventListener("click", ()=> {
+      clearInterval(timer);
+        timer = null;
+ 
+    remainingTime = 1500;
+     const minutes = Math.floor(remainingTime/60);
+    const seconds = remainingTime % 60;
+     h.innerHTML =
+        `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  })
+
+}
+
+
+///focus history
+
+
+async function trackFocus() {
+        console.log("Sending focus session...");
+
+    const response = await fetch("/tasks/focus/session",
+          {method: "POST"}  
+
+    );
+    const data = await response.json();
+    return data;
+}
+
+
+timerCount();
 countStreak();
 loadTodayTasks();
 loadWeeklyTask();
+trackFocus();

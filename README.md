@@ -1,6 +1,6 @@
 # FocusForge
 
-A productivity-focused study planner built with JavaScript, Express.js, MongoDB, and Tailwind CSS to help students organize tasks, track progress, and maintain study consistency.
+A productivity-focused study planner built with JavaScript, Express.js, MongoDB, and Tailwind CSS to help students organize tasks, stay focused, and build consistent study habits.
 
 ## Features
 
@@ -17,39 +17,44 @@ A productivity-focused study planner built with JavaScript, Express.js, MongoDB,
 * Today's Tasks
 * Upcoming Tasks
 * Recently Completed Tasks
-* Real-time task statistics:
+* Real-time statistics:
 
   * Total Tasks
   * Completed Tasks
   * Pending Tasks
-  * Study Streak Counter
+  * Current Study Streak
+  * Total Focus Sessions
+
+### Focus Timer
+
+* Built-in Pomodoro-style study timer
+* Start and track focused study sessions
+* Automatic session completion tracking
+* Focus session history stored in MongoDB
+* Session count updates in real time
 
 ### Study Streak System
 
-* Tracks consecutive study days
-* Automatically resets streak when a study gap is detected
-* Displays current streak on the dashboard
+* Tracks consecutive study days based on completed focus sessions
+* Automatically resets streak after missed study days
+* Displays current study streak on the dashboard
+* Encourages consistent daily study habits
 
 ### Weekly Progress Analytics
 
-* Visual weekly progress chart
-* Displays completed tasks by day of the week
-* Helps monitor study consistency
+* Interactive weekly progress chart using Chart.js
+* Visualizes completed tasks throughout the week
+* Helps monitor productivity trends and study consistency
 
 ### Kanban Board
 
-Organize tasks using drag-and-drop workflow:
+Organize tasks with a drag-and-drop workflow:
 
 * To Do
 * In Progress
 * Done
 
-### User Experience
 
-* Dark mode support
-* Responsive design
-* Clean and modern UI
-* Real-time updates
 
 ## Tech Stack
 
@@ -70,9 +75,6 @@ Organize tasks using drag-and-drop workflow:
 * MongoDB
 * Mongoose
 
-
-
 ## Project Status
 
-Core functionality is complete, including task management, dashboard analytics, Kanban workflow, MongoDB integration, study streak tracking, and weekly progress visualization. New features and UI improvements are actively being developed.
-
+FocusForge currently includes task management, dashboard analytics, focus session tracking, study streak monitoring, weekly progress visualization, Kanban workflow management, and MongoDB integration. Development is ongoing with plans for enhanced productivity insights, user authentication, and additional study-focused features.
