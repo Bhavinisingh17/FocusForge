@@ -122,7 +122,7 @@ checkbox.addEventListener("change", async () => {
     const response = await fetch("/tasks/streak");
     const streak = await response.json();
     document.querySelector("#streak h1").innerHTML = streak.currentStreak;
-
+    document.querySelector("#focusStreak").innerHTML = `${streak.currentStreak} days`;
 }
 
 const ctx = document.getElementById("weeklyChart");
@@ -214,8 +214,7 @@ function timerCount() {
 
              const data = await trackFocus();
 
-              document.querySelector("#sessionCount").innerText =
-              data.totalSession;
+             
 
             }
 }, 1000);
@@ -251,6 +250,8 @@ const reset = document.querySelector("#reset");
 
 
 async function trackFocus() {
+
+
         console.log("Sending focus session...");
 
     const response = await fetch("/tasks/focus/session",
@@ -258,6 +259,11 @@ async function trackFocus() {
 
     );
     const data = await response.json();
+            document.querySelector("#focusTime").innerHTML = data.totalFocusTime;
+            document.querySelector("#sessionCount").innerHTML = data.totalSession;
+
+
+
     return data;
 }
 
@@ -266,4 +272,3 @@ timerCount();
 countStreak();
 loadTodayTasks();
 loadWeeklyTask();
-trackFocus();

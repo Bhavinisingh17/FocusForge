@@ -140,7 +140,7 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
 
 
      <!-- Charts -->
-      <div class="flex mr-2">
+      <div class="flex mr-3">
 
 <div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl w-[55%]">
 
@@ -154,13 +154,13 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
 </div>
 
 <!-- ////focus summary -->
-<div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl w-[25%]">
+<div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl w-[25%] ml-3">
 
     <h2 class="text-xl mb-6 text-white">
         Focus Summary (Today)
     </h2>
 
-    <div class="grid grid-cols-2">
+    <div class="grid grid-cols-2 mr">
 
         <!-- Total Focus Time -->
         <div class="p-4 border-r border-b border-[#334155]">
@@ -169,23 +169,23 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
             </p>
 
             <div class="flex items-center gap-3">
-                <i class="fa-regular fa-clock text-xl"></i>
-                <span id="focusTime" class="text-3xl font-bold">
-                    2h 15m
+                <i class="fa-regular fa-clock text-xl text-white"></i>
+                <span id="focusTime" class="text-xl text-white">
+                    0
                 </span>
             </div>
         </div>
 
         <!-- Sessions Completed -->
-        <div class="p-4 border-b border-[#334155]">
-            <p class="text-gray-400 mb-3">
+        <div class="p-4 border-b border-[#8da3c1] text-white">
+            <p class="text-gray-400 mb-3 ">
                 Sessions Completed
             </p>
 
             <div class="flex items-center gap-3">
                 <i class="fa-solid fa-stopwatch text-xl"></i>
-                <span id="sessionCount" class="text-3xl font-bold">
-                    5
+                <span id="sessionCount" class="text-xl ">
+                    0
                 </span>
             </div>
         </div>
@@ -198,7 +198,7 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
 
             <div class="flex items-center gap-3">
                 <i class="fa-solid fa-bullseye text-xl text-green-500"></i>
-                <span id="longestSession" class="text-3xl font-bold">
+                <span id="longestSession" class="text-xl text-white">
                     50m
                 </span>
             </div>
@@ -212,7 +212,7 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
 
             <div class="flex items-center gap-3">
                 <i class="fa-solid fa-fire text-xl text-pink-500"></i>
-                <span id="streak" class="text-3xl font-bold">
+                <span id="focusStreak" class="text-xl  text-white">
                     7 days
                 </span>
             </div>
@@ -226,7 +226,7 @@ class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 w-64 flex it
 
 
 <!-- ///focus timer -->
-        <div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl  w-[35%]">
+        <div class="dark:bg-[#18181B] dark:border dark:border-[#27272A] mt-3 p-4 h-96 rounded-xl  w-[35%] ml-3">
         <h3 class=" dark:text-white text-xl">
             Focus Timer
         </h3>
