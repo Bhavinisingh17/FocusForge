@@ -2,7 +2,18 @@ const Task = require("../models/task");
 const Streak = require("../models/streak");
 const Focus = require("../models/focus");
 const today = new Date().toISOString().split("T")[0];
+const path = require("path");
 
+
+///get
+
+const viewDash = (req, res) => {
+    if(!req.isAuthenticated()){
+      return res.redirect("/pages/login.html");
+    }
+        res.sendFile(  path.join(__dirname, "../../public/pages/index.html")
+);
+}
 
 
 ////whole code is for when checkbox got checked then multiple things happen at once
@@ -191,5 +202,6 @@ module.exports = {
     checkTask,
     streakCount,
     weeklyProgress,
-    trackFocus
+    trackFocus,
+    viewDash
 };
